@@ -782,27 +782,17 @@ body.dark .toast{
 }
 
 .favorite-btn{
-
   position:absolute;
-
   top:12px;
   left:12px;
-
   width:42px;
   height:42px;
-
   border:none;
-
   border-radius:50%;
-
   background:white;
-
   cursor:pointer;
-
   font-size:18px;
-
   z-index:10;
-
 }
 
 .nav a.active{

@@ -64,13 +64,9 @@ const getCart = () => {
 const renderCart = () => {
 
     const cart = getCart();
-
     if (cart.length === 0) {
-
         cartContainer.innerHTML = `
-
             <div class="empty-cart">
-
                 <div class="empty-cart-icon">
                     🛒
                 </div>
@@ -94,9 +90,7 @@ const renderCart = () => {
                     بازگشت به فروشگاه
 
                 </a>
-
             </div>
-
         `;
 
         subtotalElement.textContent =
@@ -110,25 +104,16 @@ const renderCart = () => {
     }
 
     cartContainer.innerHTML = cart.map(item => `
-
         <article class="cart-item-card">
-
             <img
                 src="${item.image}"
                 alt="${item.name}">
-
             <div class="cart-item-info">
-
                 <div class="cart-item-category">
-
                     ${item.category}
-
                 </div>
-
                 <div class="cart-item-name">
-
                     ${item.name}
-
                 </div>
 
                 <div class="cart-item-price">
@@ -136,13 +121,10 @@ const renderCart = () => {
                     ${formatPrice(item.price)}
 
                 </div>
-
             </div>
 
             <div class="cart-item-right">
-
                 <div class="quantity-box">
-
                     <button
                         onclick="changeQuantity(${item.id},-1)">
 
@@ -166,11 +148,9 @@ const renderCart = () => {
                 </div>
 
                 <div class="cart-total-price">
-
                     ${formatPrice(
                         item.price * item.quantity
                     )}
-
                 </div>
 
                 <button
@@ -180,21 +160,15 @@ const renderCart = () => {
                     حذف محصول
 
                 </button>
-
             </div>
-
         </article>
 
     `).join("");
 
     const total = cart.reduce(
-
         (sum, item) =>
-
             sum + (item.price * item.quantity),
-
         0
-
     );
 
     subtotalElement.textContent =
@@ -215,11 +189,9 @@ const renderCart = () => {
         formatPrice(
             Math.max(finalTotal, 0)
         );
-
 };
 
 const applyDiscount = () => {
-
     const input =
         document.getElementById("discountInput");
 
@@ -232,14 +204,10 @@ const applyDiscount = () => {
             .toUpperCase();
 
     discount = 0;
-
     message.className = "";
-
     if (!discountCodes[code]) {
-
         message.textContent =
             "کد تخفیف معتبر نیست.";
-
         message.classList.add("error");
 
         localStorage.removeItem(
@@ -247,41 +215,32 @@ const applyDiscount = () => {
         );
 
         renderCart();
-
         return;
-
     }
 
     const cart = getCart();
 
     const total =
         cart.reduce(
-
             (sum, item) =>
                 sum + item.price * item.quantity,
-
             0
-
         );
 
     if (
         discountCodes[code].type === "percent"
     ) {
-
         discount =
             total *
             discountCodes[code].value /
             100;
-
     }
 
     if (
         discountCodes[code].type === "shipping"
     ) {
-
         discount =
             shippingCost;
-
     }
 
     localStorage.setItem(
@@ -304,23 +263,16 @@ const applyDiscount = () => {
 //=====================================
 
 const changeQuantity = (id, amount) => {
-
     const cart = getCart();
-
     const item =
         cart.find(product => product.id === id);
-
     if (!item) return;
-
     item.quantity += amount;
-
     if (item.quantity <= 0) {
-
         const index =
             cart.findIndex(product => product.id === id);
 
         cart.splice(index, 1);
-
     }
 
     localStorage.setItem(
@@ -329,16 +281,13 @@ const changeQuantity = (id, amount) => {
     );
 
     renderCart();
-
 };
-
 
 //=====================================
 // Delete Item
 //=====================================
 
 const deleteItem = (id) => {
-
     const cart = getCart().filter(
         item => item.id !== id
     );
@@ -347,11 +296,8 @@ const deleteItem = (id) => {
         "beauty_cart",
         JSON.stringify(cart)
     );
-
     renderCart();
-
 };
-
 
 //=====================================
 // Payment Button
@@ -432,9 +378,7 @@ renderCart();
 //=====================================
 
 window.addEventListener("focus", () => {
-
     renderCart();
-
 });
 
 
@@ -443,7 +387,5 @@ window.addEventListener("focus", () => {
 //=====================================
 
 window.addEventListener("pageshow", () => {
-
     renderCart();
-
 });
