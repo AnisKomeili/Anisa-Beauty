@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>سبد خرید | Anisa Beauty</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="cart.css">
+
+    </head>
+
+    <body>
+
+        <div class="bg-glow bg-glow-1"></div>
+        <div class="bg-glow bg-glow-2"></div>
+
+        <header class="cart-header">
+            <div class="container">
+                <a href="index.html" class="back-btn">
+                    <span>بازگشت</span>
+                    <span>←</span>
+                </a>
+
+                <div class="cart-title">
+                    <div class="cart-icon">
+                        <img src="shopcart2.png" alt="Shopping Cart">
+                    </div>
+                    <h1>سبد خرید شما</h1>
+                    <p> مدیریت سفارش‌های انتخاب شده</p>
+                </div>
+
+            </div>
+
+        </header>
+
+            <main class="cart-page">
+
+                <div class="container cart-layout">
+
+                    <section class="cart-products">
+                        <h2>محصولات</h2>
+                            <div id="cartPageItems">
+
+                            <!-- JS -->
+
+                            </div>
+
+                    </section>
+
+                    <aside class="summary-card">
+
+                        <h3>خلاصه سفارش</h3>
+
+                            <div class="summary-row">
+                                <span>جمع کالاها</span>
+                                <strong id="summarySubtotal">
+                                    0 تومان
+                                </strong>
+                            </div>
+
+                            <div class="shipping-section">
+
+                        <h4>روش ارسال</h4>
+
+                            <label class="shipping-option">
+
+                                <input
+                                    type="radio"
+                                    name="shipping"
+                                    value="150000"
+                                    checked>
+
+                                <span>
+                                    پست پیشتاز
+                                </span>
+
+                                <strong>
+                                    150,000 تومان
+                                </strong>
+
+                            </label>
+
+                            <label class="shipping-option">
+
+                                <input
+                                    type="radio"
+                                    name="shipping"
+                                    value="120000">
+
+                                <span>
+                                    پست عادی
+                                </span>
+
+                                <strong>
+                                    120,000 تومان
+                                </strong>
+
+                            </label>
+
+                            <label class="shipping-option">
+
+                                <input
+                                    type="radio"
+                                    name="shipping"
+                                    value="0">
+
+                                <span>
+                                    تحویل حضوری
+                                </span>
+
+                                <strong>
+                                    رایگان
+                                </strong>
+
+                            </label>
+
+                        </div>
+
+                            <div class="summary-row">
+                                <span>تخفیف</span>
+                                <strong id="discountAmount">
+                                    0 تومان
+                                </strong>
+                            </div>
+
+                    <div class="discount-section">
+
+                        <h4>کد تخفیف</h4>
+
+                        <div class="discount-box">
+
+                            <input
+                                type="text"
+                                id="discountInput"
+                                placeholder="کد تخفیف را وارد کنید">
+
+                            <button
+                                id="applyDiscountBtn">
+                                اعمال
+                            </button>
+                        </div>
+                        <small id="discountMessage"></small>
+                    </div>
+                    <hr>
+
+                            <div class="summary-row total-row">
+                                <span>مبلغ قابل پرداخت</span>
+                                <strong id="summaryTotal">
+                                    0 تومان
+                                </strong>
+                            </div>
+
+                        <button class="payment-btn">
+                             ادامه فرایند پرداخت
+                        </button>
+                    </aside>
+
+                </div>
+
+
+                <section class="shopping-benefits">
+
+                    <div class="benefit-card">
+                        <h3>🚚 ارسال سریع</h3>
+                        <p> ارسال سفارش‌ها در کوتاه‌ترین زمان ممکن</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <h3>🔒 پرداخت امن</h3>
+                        <p> پرداخت از طریق درگاه‌های معتبر بانکی</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <h3>✨ اصالت کالا</h3>
+                        <p> تمام محصولات با ضمانت اصالت کالا</p>
+                    </div>
+
+                </section>
+
+            </main>
+
+            <div id="toast" class="toast">
+                درگاه پرداخت در نسخه بعدی اضافه خواهد شد.
+            </div>
+
+            <script src="products.js"></script>
+            <script src="utils.js"></script>
+            <script src="cart.js"></script>
+
+    </body>
+</html>

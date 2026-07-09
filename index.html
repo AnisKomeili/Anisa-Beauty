@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anisa Beauty | فروشگاه آنیسا</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background decor -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="َAnisa Beauty">
+        <span class="logo__icon">✦</span>
+        <span class="logo__text">Anisa Beauty</span>
+      </a>
+
+      <nav class="nav" aria-label="منوی اصلی">
+        <a href="#products">محصولات</a>
+        <a href="#" id="favLink">❤️ علاقه‌مندی</a>
+        <a href="#" onclick="openContactModal()">تماس</a>
+      </nav>
+
+      <button id="themeToggle" class="theme-btn">
+      🌙
+      </button>
+      <button class="cart-btn" onclick="toggleCart()" aria-label="باز کردن سبد خرید">
+        <span>سبد خرید</span>
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <span class="hero__tag">Luxury Beauty Store</span>
+          <h1>زیبایی را با یک تجربه‌ی لوکس‌تر و مدرن‌تر لمس کن</h1>
+          <p>
+            مجموعه‌ای منتخب از محصولات آرایشی و مراقبتی با طراحی حرفه‌ای، تجربه کاربری سریع و ظاهر چشم‌نواز.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#products" class="btn btn--primary">مشاهده محصولات</a>
+            <button class="btn btn--secondary" onclick="toggleCart()">مشاهده سبد خرید</button>
+          </div>
+
+          <div class="hero__stats">
+            <div>
+              <strong>+120</strong>
+              <span>محصول منتخب</span>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <span>پشتیبانی</span>
+            </div>
+            <div>
+              <strong>99%</strong>
+              <span>رضایت مشتری</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero-card hero-card--large">
+            <img src="beauty-products-makeup.jpg" alt="Beauty products" />
+          </div>
+          <div class="hero-card hero-card--small">
+            <img src="luxury.jpg" alt="Luxury cosmetics" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+      <div class="container features__grid">
+        <article class="feature-card">
+          <h3>کیفیت تضمین شده</h3>
+          <p>تمامی محصولات از برندهای معتبر و با اصالت انتخاب شده‌اند تا تجربه‌ای مطمئن و حرفه‌ای از خرید داشته باشید.</p>
+        </article>
+        <article class="feature-card">
+          <h3>ارسال سریع و امن</h3>
+          <p>سفارش‌های شما با بسته‌بندی استاندارد و در کوتاه‌ترین زمان ممکن به دستتان می‌رسد.</p>
+        </article>
+        <article class="feature-card">
+          <h3>خریدی مطمئن و آسان</h3>
+          <p> با رابط کاربری مدرن، پرداخت امن و پشتیبانی حرفه‌ای، تجربه‌ای متفاوت از خرید آنلاین را احساس کنید.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products-section" id="products">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-head__tag">Our Collection</span>
+            <h2>محصولات منتخب</h2>
+          </div>
+
+          <div class="filters">
+            <div class="search-box">
+              <input id="searchInput" type="text" placeholder="جستجوی محصول یا دسته..." />
+            </div>
+
+            <select id="categoryFilter">
+              <option value="">همه دسته‌ها</option>
+              <option value="پوست">پوست</option>
+              <option value="آرایشی">آرایشی</option>
+              <option value="عطر">عطر</option>
+              <option value="ابزار">ابزار</option>
+            </select>
+
+          </div>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+      
+    </section>
+
+  </main>
+
+  <!-- Cart Overlay -->
+  <div class="cart-overlay" onclick="toggleCart()"></div>
+
+  <!-- Cart Drawer -->
+  <aside class="cart-drawer" id="cartDrawer" aria-label="سبد خرید">
+    <div class="cart-drawer__header">
+      <h3>سبد خرید شما</h3>
+      <button class="icon-btn" onclick="toggleCart()" aria-label="بستن سبد خرید">✕</button>
+    </div>
+
+    <div class="cart-drawer__content" id="cartItems">
+      <!-- cart items -->
+    </div>
+
+    <div class="cart-drawer__footer">
+      <div class="cart-total-row">
+        <span>جمع کل</span>
+        <strong id="cartTotal">۰ تومان</strong>
+      </div>
+      <button
+        class="checkout-btn"
+        onclick="window.location.href='cart.html'">
+        ادامه خرید
+      </button>
+    </div>
+  </aside>
+
+  <!-- Product Modal -->
+  <dialog id="productModal" class="product-modal">
+    <div id="modalContent"></div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </dialog>
+
+  <dialog id="contactModal" class="product-modal">
+    <div class="contact-modal-content">
+
+      <h2>راه های ارتباطی</h2>
+
+      <div class="contact-list">
+        <p>📞 09123456789</p>
+        <p>✉ info@beautyshop.com</p>
+        <p>📍 تهران - خیابان ولیعصر</p>
+        <p>📷 Instagram: @beautyshop</p>
+        <p>💬 Telegram: @beautyshop</p>
+      </div>
+
+    </div>
+
+    <button class="modal-close" onclick="closeContactModal()">
+      ✕
+    </button>
+  </dialog>
+
+  <div id="toast" class="toast">
+    ✓ محصول به سبد خرید اضافه شد
+  </div>
+
+  <script src="products.js"></script>
+  <script src="utils.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
